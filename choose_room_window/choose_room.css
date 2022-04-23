@@ -1,0 +1,152 @@
+/* Form styles */
+
+/* Form for text */
+.modal-choose-room-txt {
+    position: absolute;
+    width: 571px;
+    height: 160px;
+    margin: 5% auto 27% auto; 
+    background-color: white;
+    border-radius: 32px;
+    z-index: 2;
+}
+
+.container_for_txt {
+    padding: 16px;
+    padding-top: 6%;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hi-user {
+    color: black;
+    padding: 16px;
+    padding-left: 20%;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.please-choose-room-txt {
+    color: black;
+    padding: 16px;
+    padding-left: 14%;
+    padding-top: 20%;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Form for icons */
+
+.modal-choose-room {
+    /* position: absolute;
+    width: 511px;
+    height: 170px;
+    margin: 5% auto 1% auto; 
+    background-color: white;
+    border-radius: 45px;
+    z-index: 2; */
+
+    width: 725px;
+    height: 140px;
+    margin: 5% auto 1% auto; 
+    left: 273px;
+    top: 200px;
+
+    background: #FFFFFF;
+    border-radius: 40px;
+    z-index: 2;
+}
+
+.container_for_icon {
+
+}
+
+.please-choose-room-txt {
+
+}
+
+  
+.cookroom {
+    position: absolute;
+    width: 157px;
+    height: 89px;
+
+    margin-left: 5%;
+    margin-bottom: 5%;
+
+    color: black;
+}
+
+.cookroom_img {
+    width: 70%;
+}
+
+.cookroom_txt {
+    font-size: 18px;
+    margin-left: 8%;
+}
+
+.bedroom {
+    position: absolute;
+    width: 160px;
+    height: 89px;
+
+    margin-left: 14.9%;
+    margin-top: 0.4%;
+
+    color: black;
+}
+
+.bedroom_img {
+    width: 70%;
+}
+
+.bedroom_txt {
+    font-size: 18px;
+    margin-left: 13%;
+    margin-top: -5.5%;
+}
+
+
+.bathroom {
+    position: absolute;
+    width: 160px;
+    height: 89px;
+
+    margin-left: 26%;
+    margin-top: 0.5%;
+
+    color: black;
+}
+
+.bathroom_img {
+    width: 60%;
+}
+
+.bathroom_txt {
+    font-size: 18px;
+    margin-left: 4%;
+    margin-top: 4.3%;
+}
+
+
+.livingroom {
+    position: absolute;
+    width: 160px;
+    height: 89px;
+
+    margin-left: 34.5%;
+    margin-top: 0.2%;
+
+    color: black;
+}
+
+.livingroom_img {
+    width: 70%;
+}
+
+.livingroom_txt {
+    font-size: 18px;
+    margin-left: 6.7%;
+    margin-top: -2.9%;
+}

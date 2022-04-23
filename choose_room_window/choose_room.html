@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../main_wind.css">
+    <link rel="stylesheet" href="choose_room.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Hi, User</h1>
+    <div class="head">
+        <form class="modal-choose-room-txt">
+            <div class="container_for_txt">                
+                <label class="hi-user">
+                    Hi, ${username}. 
+                </label>
+                <label class="please-choose-room-txt">Please choose room</label>
+            </div>
+        </form>
+
+        <form class="modal-choose-room">
+            <div class="container_for_icon">
+                <ul class="list_icons">
+                    <li class="cookroom">
+                        <img src="../images/icons/cookroom.png" alt="cookroom"
+                        class="cookroom_img">
+                        <p class="cookroom_txt">Cookroom</p>
+                    </li>
+                    <li class="bedroom">
+                        <img src="../images/icons/bedroom.png" alt="bedroom"
+                        class="bedroom_img">
+                        <p class="bedroom_txt">Bedroom</p>
+                    </li>
+                    <li class="bathroom">
+                        <img src="../images/icons/bath.png" alt="bathroom"
+                        class="bathroom_img">
+                        <p class="bathroom_txt">Bathroom</p>
+                    </li>
+                    <li class="livingroom">
+                        <img src="../images/icons/livingroom.png" alt="livingroom"
+                        class="livingroom_img">
+                        <p class="livingroom_txt">Livingroom</p>
+                    </li> 
+                </ul>
+            </div>
+        </form>
+
+        <div class="overlay"></div>
+    </div>
+    <script src="choose_room.js"></script>
+
 </body>
 </html>
