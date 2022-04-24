@@ -13,27 +13,13 @@
 
 .container_for_txt {
     padding: 16px;
-    padding-top: 6%;
+    padding-top: 4%;
     font-size: 40px;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: black;
 }
 
-.hi-user {
-    color: black;
-    padding: 16px;
-    padding-left: 20%;
-    font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.please-choose-room-txt {
-    color: black;
-    padding: 16px;
-    padding-left: 14%;
-    padding-top: 20%;
-    font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 /* Form for icons */
 

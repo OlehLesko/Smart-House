@@ -17,15 +17,15 @@ function check_user_data (login, password, clicked_button) {
 
     // Modal for error
     const modal = document.getElementById("modal_for_Error");
-    const span = document.getElementsByClassName("close_modal_for_error")[0];
-    const p = document.getElementById("text_error");
+    const close_button_for_model = document.getElementsByClassName("close_modal_for_error")[0];
+    const txt_error = document.getElementById("text_error");
     
      
     function open_modal_window_for_error(text, style_class) {
         modal.style.display = "block";
-        p.className = style_class;
-        p.innerHTML = `<h1>${text}</h1>`
-        span.onclick = function() {
+        txt_error.className = style_class;
+        txt_error.innerHTML = `<h1>${text}</h1>`
+        close_button_for_model.onclick = function() {
             modal.style.display = "none";      
         }
         window.onclick = function(event) {
@@ -70,36 +70,68 @@ function check_user_data (login, password, clicked_button) {
 
         // Check clicked button
         if (clicked_button === "Sign_in") {
-            const get_data = localStorage.getItem(`${login.value}`)
+            const get_data = localStorage.getItem(`User`)
             const parse_user_data = JSON.parse(get_data);
-            const username_db = parse_user_data.Username;
-            const user_password_db = parse_user_data.Password;
 
-            if(username_db === login.value && user_password_db === password.value) {
-                window.location.href = "./choose_room_window/choose_room.html";
-            } else {
+            if(get_data === null){
                 const txt_error = `No such user found. Check the entered values`
                 open_modal_window_for_error(txt_error, "not_find_user");
+            } else {
+
+                const username_db = parse_user_data.username;
+                const user_password_db = parse_user_data.password;
+
+                if(username_db === login.value && user_password_db === password.value) {
+                    window.location.href = "./choose_room_window/choose_room.html";
+                } else {
+                    const txt_error = `No such user found. Check the entered values`
+                    open_modal_window_for_error(txt_error, "not_find_user");
+                }
             }
         } else if (clicked_button === "Register") {
-            const get_data = localStorage.getItem(`${login.value}`)
+            const get_data = localStorage.getItem(`User`)
             const parse_user_data = JSON.parse(get_data);
             
             if(get_data === null){
-                const obj_for_push = {id: timeInMs, Username: login.value, Password: password.value}
-                const pushdata = localStorage.setItem(`${login.value}`, JSON.stringify(obj_for_push)); 
+                const obj_for_push = {id: timeInMs, username: login.value, password: password.value, cookroom: '', bedroom: '', bathroom: '', livingroom: ''}
+
+                const pushdata = localStorage.setItem(`User`, JSON.stringify(obj_for_push)); 
                 window.location.href = "./choose_room_window/choose_room.html"; 
             } else if(get_data != null) {
-                const username_db = parse_user_data.Username;
-                const user_password_db = parse_user_data.Password;
-                
-                if(login.value === username_db) {
-                    const txt_error = `Such a user already exists. Please check the entered values`
-                    open_modal_window_for_error(txt_error, "user_already_exists");
-                } else if(login.value != username_db){
-                    const obj_for_push = {id: timeInMs, Username: login.value, Password: password.value}
-                    const pushdata = localStorage.setItem(`${login.value}`, JSON.stringify(obj_for_push));
-                    window.location.href = "./choose_room_window/choose_room.html"; 
+                const username_db = parse_user_data.username;
+                const user_password_db = parse_user_data.password;
+    
+                const update_data = confirm("You are already registered to update the data.");
+
+                if (update_data) {
+                    const get_old_user_password = prompt("Enter your old password ");
+
+                    if(get_old_user_password === user_password_db) {
+                        const obj_for_push = {id: timeInMs, username: login.value, password: password.value, cookroom: '', bedroom: '', bathroom: '', livingroom: ''}
+
+                        const pushdata = localStorage.setItem(`User`, JSON.stringify(obj_for_push));
+                        window.location.href = "./choose_room_window/choose_room.html"; 
+                    } else {
+                        const password_is_not_valid = confirm("Passwords do not match");
+
+                        const forgot_password = confirm("Forgot password ?");
+                        
+                        if(forgot_password){
+                            const get_old_username = prompt("Enter your old username");
+
+                            if(get_old_username === username_db) {
+                                const obj_for_push = {id: timeInMs, username: login.value, password: password.value, cookroom: '', bedroom: '', bathroom: '', livingroom: ''}
+
+                                const pushdata = localStorage.setItem(`User`, JSON.stringify(obj_for_push));
+                                window.location.href = "./choose_room_window/choose_room.html"; 
+                            } else {
+                                const sorry_user = alert("Sorry, but that data isn`t correct . Please repeat enter")
+                            }
+                        }
+
+                    }
+                } else {
+                    console.log("You pressed Cancel!");
                 }
 
             }

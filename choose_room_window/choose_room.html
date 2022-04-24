@@ -11,37 +11,40 @@
 <body>
     <div class="head">
         <form class="modal-choose-room-txt">
-            <div class="container_for_txt">                
-                <label class="hi-user">
-                    Hi, ${username}. 
-                </label>
-                <label class="please-choose-room-txt">Please choose room</label>
-            </div>
+            <div class="container_for_txt" id="container_for_txt"></div>
         </form>
 
         <form class="modal-choose-room">
             <div class="container_for_icon">
                 <ul class="list_icons">
-                    <li class="cookroom">
-                        <img src="../images/icons/cookroom.png" alt="cookroom"
-                        class="cookroom_img">
-                        <p class="cookroom_txt">Cookroom</p>
-                    </li>
-                    <li class="bedroom">
-                        <img src="../images/icons/bedroom.png" alt="bedroom"
-                        class="bedroom_img">
-                        <p class="bedroom_txt">Bedroom</p>
-                    </li>
-                    <li class="bathroom">
-                        <img src="../images/icons/bath.png" alt="bathroom"
-                        class="bathroom_img">
-                        <p class="bathroom_txt">Bathroom</p>
-                    </li>
-                    <li class="livingroom">
-                        <img src="../images/icons/livingroom.png" alt="livingroom"
-                        class="livingroom_img">
-                        <p class="livingroom_txt">Livingroom</p>
-                    </li> 
+                    <div onclick='update_user_data("cookroom", "./rooms/cookroom/cookroom.html")'>
+                        <li class="cookroom">
+                            <img src="../images/icons/cookroom.png" alt="cookroom"
+                            class="cookroom_img">
+                            <p class="cookroom_txt">Cookroom</p>
+                        </li>
+                    </div>
+                    <div onclick='update_user_data("bedroom", "./rooms/bedroom/bedroom.html")'>
+                        <li class="bedroom">
+                            <img src="../images/icons/bedroom.png" alt="bedroom"
+                            class="bedroom_img">
+                            <p class="bedroom_txt">Bedroom</p>
+                        </li>
+                    </div>
+                    <div onclick='update_user_data("bathroom", "./rooms/bathroom/bathroom.html")'>
+                        <li class="bathroom">
+                            <img src="../images/icons/bath.png" alt="bathroom"
+                            class="bathroom_img">
+                            <p class="bathroom_txt">Bathroom</p>
+                        </li>
+                    </div>
+                    <div onclick='update_user_data("livingroom", "./rooms/livingroom/livingroom.html")'>
+                        <li class="livingroom">
+                            <img src="../images/icons/livingroom.png" alt="livingroom"
+                            class="livingroom_img">
+                            <p class="livingroom_txt">Livingroom</p>
+                        </li> 
+                    </div>
                 </ul>
             </div>
         </form>
