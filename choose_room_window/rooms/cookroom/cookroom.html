@@ -4,9 +4,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../main_wind.css">
+    <link rel="stylesheet" href="cookroom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to cookroom</h1>
+    <div class="head-cookroom" id="head-cookroom">
+        <form class="button-list">
+            <div class="available-functions">
+                Available functions
+            </div>
+
+            <div class="container-for-button" id="container-for-button">
+                <button id="open-freezer" type="button"
+                    onclick='freezer.open_freezer()'>Open freezer</button>
+                <button><a href="https://glovoapp.com/ua/uk/" target="_blank">
+                    Make order food</a></button>
+
+                <button id="make-eats"
+                    onclick='make_eats.choose_dishes("Choose a dish")'>
+                    Make eats</button>
+                <button type="button" id="turn-on-off-music" onclick="audio.get_data_for_turn_fun()">Turn on music for cooking</button>
+                
+
+                <button><a href="../../choose_room.html">
+                Exit</a></button>
+            </div>
+
+            
+        </form>
+        <form class="form_for_audio" id="form_for_audio">
+                <div class="player" id="player">
+                    <div class="wrapper">
+                        <div class="details">
+                            <div class="now-playing">PLAYING x OF y</div>
+                            <div class="track-art"></div>
+                            <div class="track-name">Track Name</div>
+                            <div class="track-artist">Track Artist</div>
+                        </div>
+            
+                    <div class="slider_container">
+                        <div class="current-time">00:00</div>
+                            <input type="range" min="1"  value="0" class="seek_slider" onchange="audio.seekTo()">
+                            <div class="total-duration">00:00</div>
+                    </div>
+
+                    <div class="slider_container">
+                        <i class="fa fa-volume-down"></i>
+                            <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="audio.setVolume()">
+                            <i class="fa fa-volume-up"></i>
+                    </div>
+            
+                    <div class="buttons">
+                        <div class="random-track" onclick="audio.randomTrack()">
+                            <i class="fas fa-random fa-2x" title="random"></i>
+                        </div>
+                        <div class="prev-track" onclick="audio.prevTrack()">
+                        <i class="fa fa-step-backward fa-2x"></i>
+                            </div>
+                            <div class="playpause-track" onclick="audio.playpauseTrack()">
+                                <i class="fa fa-play-circle fa-5x"></i>
+                            </div>
+                            <div class="next-track" onclick="audio.nextTrack()">
+                                <i class="fa fa-step-forward fa-2x"></i>
+                            </div>
+                            <div class="repeat-track" onclick="audio.repeatTrack()">
+                                <i class="fa fa-repeat fa-2x" title="repeat"></i>
+                            </div>
+                    </div>
+        
+
+                    <div id="wave">
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                        <span class="stroke"></span>
+                    </div> 
+                </div> 
+
+    
+            </div>
+
+        </form>
+        <div class="overlay"></div>
+    </div>
+    <script src="cookroom.js"></script>
+    
 </body>
 </html>

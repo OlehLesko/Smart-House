@@ -9,12 +9,6 @@
     list-style: none;
     text-decoration: none;
 }
-/* a, p, h1, h2, h3, h4, h5, h6 {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    font-style: inherit;
-} */
 
 html, body {
     height: 100%;
@@ -44,7 +38,6 @@ html, body {
     left: 0;
     z-index: 0;
 }
-
 
 /* Form styles */
 .modal-content {
