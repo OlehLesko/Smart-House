@@ -1,0 +1,9 @@
+/* Main styles */
+.head-bedroom {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../../../images/bedroom.jpg");
+    background-size: cover;
+}

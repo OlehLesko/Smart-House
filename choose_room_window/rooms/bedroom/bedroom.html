@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../main_wind.css">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="bedroom.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to bedroom</h1>
+    <div class="head-bedroom" id="head-bedroom">
+        <form class="button-list-bedroom" id="button-list-bedroom">
+            <div class="available-functions-bedroom">
+                Available functions
+            </div>
+
+            <div class="container-for-button-bedroom"
+             id="container-for-button-bedroom">
+
+                <button id="go-to-sleep"
+                    onclick='go_to_sleep.go_to_sleep()'>
+                    Go to sleep</button>
+
+                <button type="button" id="turn-on-off-light" 
+                onclick="turn_off_on_light.turn_on_light()">Turn off light</button>
+                
+
+                <button id="exit"><a href="../../choose_room.html">
+                Exit</a></button>
+            </div>            
+        </form>
+
+        <div class="overlay"></div>
+    </div>
+    <script src="bedroom.js"></script>
 </body>
 </html>

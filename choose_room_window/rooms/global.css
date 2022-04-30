@@ -1,0 +1,72 @@
+/* Button list Form*/
+.button-list-bedroom {
+    position: absolute;
+    width: 525px;
+    height: 500px;
+    left: 59px;
+    top: 10px;
+    margin: 5% auto 15% auto; 
+    background-color: white;
+    border-radius: 20px;
+    z-index: 2;    
+}
+
+
+/* Text "Available functions" */
+.available-functions-bedroom {
+    padding: 4px;
+    padding-top: 4%;
+    font-size: 36px;
+    font-family: 'Inter';
+    text-align: center;
+    color: black;
+}
+
+
+/* Button list */
+.container-for-button-bedroom {
+    padding-top: 20px;
+}
+
+.container-for-button-bedroom button { 
+    padding: 10px 24px; 
+    width: 100%; 
+    display: block;
+    text-align: left;
+
+    font-family: 'Inter';
+    background-color: white; 
+    color: black;
+    font-size: 36px;
+}
+
+/* Form */
+.form_go_to_sleep {
+    position: absolute;
+    width: 355px;
+    height: 500px;
+    left: 1065px;
+    top: 10px;
+    margin: 5% auto 15% auto; 
+    background-color: white;
+    border-radius: 20px;
+    z-index: 2;   
+}
+
+.btn_go_to_sleep {
+    position: absolute;
+    width: 228px;
+    height: 44px;
+    left: 60px;
+    text-align: center;
+    padding-top: 50%;
+
+    background-color: white;
+    font-family: 'Inter';
+    color: black;
+    font-size: 36px;
+}
+
+.change_on_black {
+    background-color: black;
+}
