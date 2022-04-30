@@ -1,5 +1,9 @@
 /* Button list Form*/
-.button-list-bedroom {
+
+/* Bedroom */
+.button-list-bedroom,
+/* Cookroom */
+.button-list-cookroom{
     position: absolute;
     width: 525px;
     height: 500px;
@@ -13,7 +17,12 @@
 
 
 /* Text "Available functions" */
-.available-functions-bedroom {
+
+/* Bedroom */
+.available-functions-bedroom, 
+/* Cookroom */
+.available-functions-cookroom,
+.freezer-has-open, .done_dish {
     padding: 4px;
     padding-top: 4%;
     font-size: 36px;
@@ -24,11 +33,18 @@
 
 
 /* Button list */
-.container-for-button-bedroom {
+
+/* Bedroom */
+.container-for-button-bedroom,
+/* Cookroom */
+.container-for-button-cookroom,
+.container-dishes, .make_dish {
     padding-top: 20px;
 }
 
-.container-for-button-bedroom button { 
+.container-for-button-bedroom button ,
+/* Cookroom */
+.container-for-button-cookroom button{ 
     padding: 10px 24px; 
     width: 100%; 
     display: block;
@@ -41,7 +57,11 @@
 }
 
 /* Form */
-.form_go_to_sleep {
+
+/* Bedroom */
+.form_go_to_sleep,
+/* Cookroom */
+.form_for_information, .form_for_dishes, .form_for_freezer {
     position: absolute;
     width: 355px;
     height: 500px;
@@ -53,7 +73,10 @@
     z-index: 2;   
 }
 
-.btn_go_to_sleep {
+/* Bedroom */
+.btn_go_to_sleep,
+/* Cookroom */
+.close_freezer, .making_dish {
     position: absolute;
     width: 228px;
     height: 44px;
@@ -67,6 +90,7 @@
     font-size: 36px;
 }
 
+/* This class only for Bedroom */
 .change_on_black {
     background-color: black;
 }
