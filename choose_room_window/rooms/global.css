@@ -3,7 +3,9 @@
 /* Bedroom */
 .button-list-bedroom,
 /* Cookroom */
-.button-list-cookroom{
+.button-list-cookroom,
+/* Bathroom  */
+.button-list-bathroom {
     position: absolute;
     width: 525px;
     height: 500px;
@@ -22,7 +24,10 @@
 .available-functions-bedroom, 
 /* Cookroom */
 .available-functions-cookroom,
-.freezer-has-open, .done_dish {
+.freezer-has-open, .done_dish,
+/* Bathroom  */
+.available-functions-bathroom,
+.shower_is_working {
     padding: 4px;
     padding-top: 4%;
     font-size: 36px;
@@ -42,9 +47,12 @@
     padding-top: 20px;
 }
 
-.container-for-button-bedroom button ,
+.container-for-button-bedroom button,
 /* Cookroom */
-.container-for-button-cookroom button{ 
+.container-for-button-cookroom button,
+/* Bathroom  */
+.container-for-button-bathroom,
+.container-for-button-bathroom button{ 
     padding: 10px 24px; 
     width: 100%; 
     display: block;
@@ -61,7 +69,9 @@
 /* Bedroom */
 .form_go_to_sleep,
 /* Cookroom */
-.form_for_information, .form_for_dishes, .form_for_freezer {
+.form_for_information, .form_for_dishes, .form_for_freezer, 
+/* Bathroom  */
+.form_for_shower {
     position: absolute;
     width: 355px;
     height: 500px;
@@ -76,7 +86,9 @@
 /* Bedroom */
 .btn_go_to_sleep,
 /* Cookroom */
-.close_freezer, .making_dish {
+.close_freezer, .making_dish, 
+/* Bathroom  */
+.btn_shower {
     position: absolute;
     width: 228px;
     height: 44px;

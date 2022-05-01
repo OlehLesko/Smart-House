@@ -4,9 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../main_wind.css">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="bathroom.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to bathroom</h1>
+    <div class="head-bathroom" id="head-bathroom">
+        <form class="button-list-bathroom" id="button-list-bathroom">
+            <div class="available-functions-bathroom">
+                Available functions
+            </div>
+
+            <div class="container-for-button-bathroom"
+             id="container-for-button-bathroom">
+
+                <button type="button" id="turn-on-off-shower" 
+                onclick="turn_off_on_shower.turn_on_shower()">Turn on shower</button>
+                
+                <button id="exit"><a href="../../choose_room.html">
+                Exit</a></button>
+                
+            </div>            
+        </form>
+
+        <div class="overlay"></div>
+    </div>
+    <script src="bathroom.js"></script>
 </body>
 </html>
