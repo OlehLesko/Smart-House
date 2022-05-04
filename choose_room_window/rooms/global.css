@@ -5,7 +5,9 @@
 /* Cookroom */
 .button-list-cookroom,
 /* Bathroom  */
-.button-list-bathroom {
+.button-list-bathroom,
+/* Livingroom */
+.button-list-livingroom {
     position: absolute;
     width: 525px;
     height: 500px;
@@ -27,7 +29,10 @@
 .freezer-has-open, .done_dish,
 /* Bathroom  */
 .available-functions-bathroom,
-.shower_is_working {
+.shower_is_working,
+/* Livingroom */
+.available-functions-livingroom, 
+.choose_channel {
     padding: 4px;
     padding-top: 4%;
     font-size: 36px;
@@ -43,7 +48,10 @@
 .container-for-button-bedroom,
 /* Cookroom */
 .container-for-button-cookroom,
-.container-dishes, .make_dish {
+.container-dishes, .make_dish,
+/* Livingroom */
+.container-for-button-livingroom,
+.container-channels {
     padding-top: 20px;
 }
 
@@ -52,7 +60,9 @@
 .container-for-button-cookroom button,
 /* Bathroom  */
 .container-for-button-bathroom,
-.container-for-button-bathroom button{ 
+.container-for-button-bathroom button,
+/* Livingroom */
+.container-for-button-livingroom button { 
     padding: 10px 24px; 
     width: 100%; 
     display: block;
@@ -71,7 +81,9 @@
 /* Cookroom */
 .form_for_information, .form_for_dishes, .form_for_freezer, 
 /* Bathroom  */
-.form_for_shower {
+.form_for_shower,
+/* Livingroom */
+.form_for_open_windows, .form_for_channel {
     position: absolute;
     width: 355px;
     height: 500px;
@@ -83,12 +95,33 @@
     z-index: 2;   
 }
 
+
+/* List inside form */
+/* Livingroom */
+.channels {
+    padding: 7px 20px; 
+    width: 100%; 
+    display: block;
+    text-align: left;
+    font-family: 'Inter';
+    background-color: white; 
+    color: black;
+    font-size: 36px;
+}
+
+.channels li {
+    padding-bottom: 6.5%;
+}
+
+
 /* Bedroom */
 .btn_go_to_sleep,
 /* Cookroom */
 .close_freezer, .making_dish, 
 /* Bathroom  */
-.btn_shower {
+.btn_shower,
+/* Livingroom */
+.btn_open_windows {
     position: absolute;
     width: 228px;
     height: 44px;

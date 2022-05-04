@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../main_wind.css">
+    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="livingroom.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to livingroom</h1>
+    <div class="head-livingroom" id="head-livingroom">
+        <form class="button-list-livingroom" id="button-list-livingroom">
+            <div class="available-functions-livingroom">
+                Available functions
+            </div>
+
+            <div class="container-for-button-livingroom"
+             id="container-for-button-livingroom">
+
+                <button type="button" id="open_close_channel" 
+                onclick="choose_channel.open_or_close_list_channels()">Turn on TV</button>
+
+                <button type="button"
+                onclick="open_close_windows.open()">Open the windows</button>
+
+                <button><a href="https://glovoapp.com/ua/uk/" target="_blank">
+                    Make order food</a></button>
+                
+                <button id="exit"><a href="../../choose_room.html">
+                Exit</a></button>
+                
+            </div>            
+        </form>
+
+        <div class="overlay"></div>
+    </div>
+    <script src="livingroom.js"></script>
 </body>
 </html>

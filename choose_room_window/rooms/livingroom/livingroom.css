@@ -1,0 +1,14 @@
+.head-livingroom {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../../../images/livingroom.jpg");
+    background-size: cover;
+}
+
+.container-for-button-livingroom button {
+    padding: 13px;
+    margin-left: 16px;
+    width: 90%;
+}
