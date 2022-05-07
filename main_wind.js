@@ -17,7 +17,7 @@ function check_user_data (login, password, clicked_button) {
 
     // Modal for error
     const modal = document.getElementById("modal_for_Error");
-    const close_button_for_model = document.getElementsByClassName("close_modal_for_error")[0];
+    const close_button_for_model = document.getElementsByClassName("close_modal_for_error-main")[0];
     const txt_error = document.getElementById("text_error");
     
      

@@ -1,4 +1,8 @@
 /* Form styles */
+.head-choose-room {
+    background: url("../images/house.jpg");
+    background-size: cover;
+}
 
 /* Form for text */
 .modal-choose-room-txt {
@@ -41,44 +45,28 @@
 
 /* Cookroom */
 .cookroom {
-    position: absolute;
     width: 157px;
     height: 89px;
 
     margin-left: 5%;
     margin-bottom: 5%;
-
-    color: black;
-}
-
-.cookroom_img {
-    width: 70%;
 }
 
 .cookroom_txt {
-    font-size: 18px;
     margin-left: 8%;
 }
 
 
 /* Bedroom */
 .bedroom {
-    position: absolute;
     width: 160px;
     height: 89px;
 
     margin-left: 14.9%;
     margin-top: 0.4%;
-
-    color: black;
-}
-
-.bedroom_img {
-    width: 70%;
 }
 
 .bedroom_txt {
-    font-size: 18px;
     margin-left: 13%;
     margin-top: -5.5%;
 }
@@ -86,14 +74,11 @@
 
 /* Bathroom */
 .bathroom {
-    position: absolute;
     width: 160px;
     height: 89px;
 
     margin-left: 26%;
     margin-top: 0.5%;
-
-    color: black;
 }
 
 .bathroom_img {
@@ -101,29 +86,20 @@
 }
 
 .bathroom_txt {
-    font-size: 18px;
     margin-left: 4%;
     margin-top: 4.3%;
 }
 
 /* Livingroom */
 .livingroom {
-    position: absolute;
     width: 160px;
     height: 89px;
 
     margin-left: 34.5%;
     margin-top: 0.2%;
-
-    color: black;
-}
-
-.livingroom_img {
-    width: 70%;
 }
 
 .livingroom_txt {
-    font-size: 18px;
     margin-left: 6.7%;
     margin-top: -2.9%;
 }

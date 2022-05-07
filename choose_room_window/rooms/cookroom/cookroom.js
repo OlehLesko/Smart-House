@@ -179,17 +179,18 @@ class Audio extends Get_Data {
         let text_event = btn_turn_on_off_music.textContent;
     
         if(text_event === "Turn on music for cooking"){
+            btn_turn_on_off_music.innerHTML = "Turn off music for cooking";
             this.audio_form.className = "new_form_for_audio";
             this.player.className = "new_player";
-            btn_turn_on_off_music .innerHTML = "Turn off music for cooking";
     
             console.log(`${text_event}`);
             this.loadTrack(this.track_index);
         } else if(text_event === "Turn off music for cooking") {
+            btn_turn_on_off_music.innerHTML = "Turn on music for cooking";
             this.audio_form.className = "form_for_audio";
             this.player.className = "player";
-            btn_turn_on_off_music .innerHTML = "Turn on music for cooking";
-            pauseTrack()
+          
+            this.pauseTrack()
     
             console.log(`${text_event}`);
         }
