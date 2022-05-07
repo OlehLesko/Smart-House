@@ -74,7 +74,7 @@ class Freezer extends Get_Data {
         super();
     }
 
-    open_freezer = () => {
+    add_form = () => {
         this.head_cookroom.innerHTML += `
             <form class="form_for_information" id="form_for_information">
                 <div class="freezer-has-open">
@@ -83,23 +83,23 @@ class Freezer extends Get_Data {
                     
                 <button class="close_freezer" 
                 type="button"
-                onclick='freezer.close_freezer()'>Close freezer</button>
+                onclick='freezer.close_form()'>Close freezer</button>
             </form> `
     }
 
-    close_freezer = () => {
-        const form_for_freezer = document.getElementById("form_for_information");
-        form_for_freezer.remove()
+    close_form = () => {
+        const form_del = document.getElementById("form_for_information");
+        form_del.remove()
     }
 }
 
 
-class Make_eats extends Get_Data {
+class Make_eats extends Freezer {
     constructor() {
         super();
     }
 
-    choose_dishes = (title) => {
+    add_form = (title) => {
         this.head_cookroom.innerHTML += `
             <form class="form_for_information" id="form_for_information">
                 <div class="freezer-has-open" id="freezer-has-open">
@@ -119,7 +119,7 @@ class Make_eats extends Get_Data {
                 <button class="close_choose_dishes"
                 type="button"
                     id="close_choose_dishes"
-                    onclick='make_eats.close_form_dishes()'>Exit</button>
+                    onclick='make_eats.close_form()'>Exit</button>
             </form> 
         `
     };
@@ -161,12 +161,6 @@ class Make_eats extends Get_Data {
             } 
         }
     }
-
-    close_form_dishes = () => {
-        const form_information_del = document.getElementById("form_for_information");
-        form_information_del.remove()
-    };
-
 };
 
 
