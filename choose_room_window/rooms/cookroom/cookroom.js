@@ -42,7 +42,8 @@ const music_list = [
         img : '../../../images/audio/faded.png',
         name : 'Faded',
         artist : 'Alan Walker',
-        music : '../music/Alan Walker - Faded.mp3'
+        music : '../music/Alan Walker - Faded.mp3',
+        time: '03:32'
     },
 
     // Один в каное
@@ -50,7 +51,8 @@ const music_list = [
         img : '../../../images/audio/one_in_a_canoe.jpg',
         name: 'Човен',
         artist: 'Один в каное',
-        music : '../music/Один В Каное - Човен.mp3'
+        music : '../music/Один В Каное - Човен.mp3',
+        time: '02:44'
     },
 
 
@@ -59,13 +61,15 @@ const music_list = [
         img : '../../../images/audio/okean_elzy_autumn.jpg',
         name: 'Осінь',
         artist: 'Океан Ельзи',
-        music : '../music/Океан Ельзи - Осінь.mp3'
+        music : '../music/Океан Ельзи - Осінь.mp3',
+        time: '04:36'
     },
     {
         img : '../../../images/audio/okean_elzy_city_of_mary.jpg',
         name: 'Місто Марії',
         artist: 'Океан Ельзи',
-        music : '../music/Океан Ельзи - Місто Марії.mp3'
+        music : '../music/Океан Ельзи - Місто Марії.mp3',
+        time: '04:16'
     },
 ];
 
@@ -201,6 +205,7 @@ class Audio extends Get_Data {
         this.track_art.style.backgroundImage = "url(" + music_list[track_index].img + ")";
         this.track_name.textContent = music_list[track_index].name;
         this.track_artist.textContent = music_list[track_index].artist;
+        this.total_duration.textContent = music_list[track_index].time;
         this.now_playing.textContent = "Playing music " + (track_index + 1) + " of " + music_list.length;
     
         updateTimer = setInterval(this.setUpdate, 1000);
@@ -337,16 +342,11 @@ class Audio extends Get_Data {
     
             let currentMinutes = Math.floor(this.curr_track.currentTime / 60);
             let currentSeconds = Math.floor(this.curr_track.currentTime - currentMinutes * 60);
-            let durationMinutes = Math.floor(this.curr_track.duration / 60);
-            let durationSeconds = Math.floor(this.curr_track.duration - durationMinutes * 60);
     
             if(currentSeconds < 10) {currentSeconds = "0" + currentSeconds; }
-            if(durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
             if(currentMinutes < 10) {currentMinutes = "0" + currentMinutes; }
-            if(durationMinutes < 10) { durationMinutes = "0" + durationMinutes; }
-    
+
             this.curr_time.textContent = currentMinutes + ":" + currentSeconds;
-            this.total_duration.textContent = durationMinutes + ":" + durationMinutes;
         }
     }
 };
