@@ -73,9 +73,174 @@ const music_list = [
     },
 ];
 
+
+class Audio extends Get_Data {
+    constructor() {
+        super()
+    }
+
+    get_data_for_turn_fun () {
+        let text_event = btn_turn_on_off_music.textContent;
+
+        let audio_form = this.audio_form;
+        let player = this.player;
+
+        if(text_event === "Turn on music for cooking"){
+            btn_turn_on_off_music.innerHTML = "Turn off music for cooking";
+            audio_form.className = "new_form_for_audio";
+            player.className = "new_player";
+    
+            console.log(`${text_event}`);
+            this.loadTrack(this.track_index);
+            
+        } 
+        if(text_event === "Turn off music for cooking") {
+            btn_turn_on_off_music.innerHTML = "Turn on music for cooking";
+            
+            audio_form.className = "form_for_audio";
+            player.className = "player";
+            this.pauseTrack() 
+            console.log(`${text_event}`);
+              
+        }
+    
+    }
+
+    loadTrack(track_index) {
+        clearInterval(updateTimer);
+        this.reset();
+    
+        this.curr_track.src = music_list[track_index].music;
+        this.curr_track.load();
+    
+        this.track_art.style.backgroundImage = "url(" + music_list[track_index].img + ")";
+        this.track_name.textContent = music_list[track_index].name;
+        this.track_artist.textContent = music_list[track_index].artist;
+        this.total_duration.textContent = music_list[track_index].time;
+        this.now_playing.textContent = "Playing music " + (track_index + 1) + " of " + music_list.length;
+    
+        this.updateTimer = setInterval(this.setUpdate, 1000);
+        this.playTrack()
+    
+        this.curr_track.addEventListener('ended', this.nextTrack);
+        this.random_bg_audio_color()
+    
+    };
+
+    random_bg_audio_color () {
+        let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e'];
+        let a;
+
+        function populate(a){
+                for(let i=0; i<6; i++){
+                    let x = Math.round(Math.random() * 14);
+                    let y = hex[x];
+                    a += y;
+                }
+                return a;
+        }
+
+        let Color1 = populate('#');
+        let Color2 = populate('#');
+        let angle = 'to right';
+
+        let gradient = 'linear-gradient(' + angle + ',' + Color1 + ', ' + Color2 + ")";
+        this.audio_form.style.background = gradient;
+    }
+
+    reset () {
+        this.curr_time.textContent = "00:00";
+        this.total_duration.textContent = "00:00";
+        this.seek_slider.value = 0;
+    }
+    
+    randomTrack () {this.isRandom ? this.pauseRandom() : this.playRandom();}
+
+    playRandom () {
+        this.isRandom = true;
+        this.randomIcon.classList.add('randomActive');
+    }
+
+    repeatTrack () {
+        let current_index = this.track_index;
+        this.loadTrack(current_index);
+        this.playTrack();
+    }
+    
+    playTrack(){
+        this.curr_track.play();
+        this.isPlaying = true;
+        this.track_art.classList.add('rotate');
+        this.wave.classList.add('loader');
+        this.playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+    }
+    
+    playpauseTrack(){
+        this.isPlaying ? this.pauseTrack() : this.playTrack();
+    }
+
+    pauseTrack () {
+        this.curr_track.pause();
+        this.isPlaying = false;
+        this.track_art.classList.remove('rotate');
+        this.wave.classList.remove('loader');
+        this.playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+    }
+    
+    nextTrack ()  {
+        if(this.track_index < music_list.length - 1 && this.isRandom === false){
+            this.track_index += 1;
+        }else if(this.track_index < music_list.length - 1 && this.isRandom === true){
+            let random_index = Number.parseInt(Math.random() * music_list.length);
+            this.track_index = random_index;
+        }else{
+            this.track_index = 0;
+        }
+        this.loadTrack(this.track_index);
+        this.playTrack();
+    }
+
+    prevTrack () {
+        if(this.track_index > 0){
+            this.track_index -= 1;
+        }else{
+            this.track_index = music_list.length -1;
+        }
+        this.loadTrack(this.track_index);
+        this.playTrack();
+    }
+    
+    seekTo () {
+        let seekto = this.curr_track.duration * (this.seek_slider.value / 100);
+        this.curr_track.currentTime = seekto;
+    }
+    
+    setVolume () {
+        this.curr_track.volume = this.volume_slider.value / 100;
+    }
+
+    setUpdate = () => {
+        let seekPosition = 0;
+        let curr_track = this.curr_track.duration
+        if(!isNaN(curr_track)){
+            seekPosition = this.curr_track.currentTime * (100 / curr_track);
+            this.seek_slider.value = seekPosition;
+    
+            let currentMinutes = Math.floor(this.curr_track.currentTime / 60);
+            let currentSeconds = Math.floor(this.curr_track.currentTime - currentMinutes * 60);
+    
+            if(currentSeconds < 10) {currentSeconds = "0" + currentSeconds; }
+            if(currentMinutes < 10) {currentMinutes = "0" + currentMinutes; }
+
+            this.curr_time.textContent = currentMinutes + ":" + currentSeconds;
+        }
+    }
+};
+
+
 class Freezer extends Get_Data {
     constructor() {
-        super();
+        super()
     }
 
     add_form = () => {
@@ -91,7 +256,7 @@ class Freezer extends Get_Data {
             </form> `
     }
 
-    close_form = () => {
+    close_form () {
         const form_del = document.getElementById("form_for_information");
         form_del.remove()
     }
@@ -166,191 +331,6 @@ class Make_eats extends Freezer {
         }
     }
 };
-
-
-class Audio extends Get_Data {
-    constructor() {
-        super()
-    }
-
-    get_data_for_turn_fun = () => {
-        let text_event = btn_turn_on_off_music.textContent;
-    
-        if(text_event === "Turn on music for cooking"){
-            btn_turn_on_off_music.innerHTML = "Turn off music for cooking";
-            this.audio_form.className = "new_form_for_audio";
-            this.player.className = "new_player";
-    
-            console.log(`${text_event}`);
-            this.loadTrack(this.track_index);
-        } else if(text_event === "Turn off music for cooking") {
-            btn_turn_on_off_music.innerHTML = "Turn on music for cooking";
-            this.audio_form.className = "form_for_audio";
-            this.player.className = "player";
-          
-            this.pauseTrack()
-    
-            console.log(`${text_event}`);
-        }
-    
-    }
-
-    loadTrack = (track_index) => {
-        clearInterval(updateTimer);
-        this.reset();
-    
-        this.curr_track.src = music_list[track_index].music;
-        this.curr_track.load();
-    
-        this.track_art.style.backgroundImage = "url(" + music_list[track_index].img + ")";
-        this.track_name.textContent = music_list[track_index].name;
-        this.track_artist.textContent = music_list[track_index].artist;
-        this.total_duration.textContent = music_list[track_index].time;
-        this.now_playing.textContent = "Playing music " + (track_index + 1) + " of " + music_list.length;
-    
-        updateTimer = setInterval(this.setUpdate, 1000);
-        this.playTrack()
-    
-        this.curr_track.addEventListener('ended', this.nextTrack);
-        this.random_bg_audio_color()
-    
-    };
-
-    random_bg_audio_color = () => {
-        let hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e'];
-        let a;
-
-        function populate(a){
-                for(let i=0; i<6; i++){
-                    let x = Math.round(Math.random() * 14);
-                    let y = hex[x];
-                    a += y;
-                }
-                return a;
-        }
-
-        let Color1 = populate('#');
-        let Color2 = populate('#');
-        let angle = 'to right';
-
-        let gradient = 'linear-gradient(' + angle + ',' + Color1 + ', ' + Color2 + ")";
-        this.audio_form.style.background = gradient;
-    }
-
-    reset = () => {
-        this.curr_time.textContent = "00:00";
-        this.total_duration.textContent = "00:00";
-        this.seek_slider.value = 0;
-    }
-    
-    randomTrack = () => {this.isRandom ? this.pauseRandom() : this.playRandom();}
-
-    playRandom = () => {
-        this.isRandom = true;
-        this.randomIcon.classList.add('randomActive');
-    }
-
-    pauseRandom = () => {
-        isRandom = false;
-        randomIcon.classList.remove('randomActive');
-    }
-
-    repeatTrack = () => {
-        let current_index = this.track_index;
-        this.loadTrack(current_index);
-        this.playTrack();
-    }
-    
-    playTrack(){
-        this.curr_track.play();
-        this.isPlaying = true;
-        this.track_art.classList.add('rotate');
-        wave.classList.add('loader');
-        this.playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
-    }
-    
-    playpauseTrack(){
-        this.isPlaying ? this.pauseTrack() : this.playTrack();
-    }
-
-    pauseTrack = () => {
-        curr_track.pause();
-        isPlaying = false;
-        track_art.classList.remove('rotate');
-        wave.classList.remove('loader');
-        playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
-    }
-    
-    nextTrack = () => {
-        if(track_index < music_list.length - 1 && isRandom === false){
-            track_index += 1;
-        }else if(track_index < music_list.length - 1 && isRandom === true){
-            let random_index = Number.parseInt(Math.random() * music_list.length);
-            track_index = random_index;
-        }else{
-            track_index = 0;
-        }
-        this.loadTrack(track_index);
-        this.playTrack();
-    }
-
-    pauseTrack = () => {
-        this.curr_track.pause();
-        this.isPlaying = false;
-        this.track_art.classList.remove('rotate');
-        wave.classList.remove('loader');
-        this.playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
-    }
-    
-    nextTrack = () => {
-        if(this.track_index < music_list.length - 1 && this.isRandom === false){
-            this.track_index += 1;
-        }else if(this.track_index < music_list.length - 1 && this.isRandom === true){
-            let random_index = Number.parseInt(Math.random() * music_list.length);
-            this.track_index = random_index;
-        }else{
-            this.track_index = 0;
-        }
-        this.loadTrack(this.track_index);
-        this.playTrack();
-    }
-
-    prevTrack = () => {
-        if(this.track_index > 0){
-            this.track_index -= 1;
-        }else{
-            this.track_index = music_list.length -1;
-        }
-        this.loadTrack(this.track_index);
-        this.playTrack();
-    }
-    
-    seekTo = () => {
-        let seekto = this.curr_track.duration * (this.seek_slider.value / 100);
-        this.curr_track.currentTime = seekto;
-    }
-    
-    setVolume = () => {
-        this.curr_track.volume = this.volume_slider.value / 100;
-    }
-
-    setUpdate = () => {
-        let seekPosition = 0;
-        if(!isNaN(this.curr_track.duration)){
-            seekPosition = this.curr_track.currentTime * (100 / this.curr_track.duration);
-            this.seek_slider.value = seekPosition;
-    
-            let currentMinutes = Math.floor(this.curr_track.currentTime / 60);
-            let currentSeconds = Math.floor(this.curr_track.currentTime - currentMinutes * 60);
-    
-            if(currentSeconds < 10) {currentSeconds = "0" + currentSeconds; }
-            if(currentMinutes < 10) {currentMinutes = "0" + currentMinutes; }
-
-            this.curr_time.textContent = currentMinutes + ":" + currentSeconds;
-        }
-    }
-};
-
 
 const freezer = new Freezer();
 const make_eats = new Make_eats();
